@@ -1,0 +1,84 @@
+<div style="width:100%">
+    <div>
+            <h3>Manage Apartments</h3>
+			<alerts></alerts>
+			<div class="navbar">
+				  <div class="navbar-inner">
+					<div class="row-fluid">
+						<form>
+						<div class="span8">
+							<div class="navbar-search pull-left">		
+								<div class="form-inline">
+									<input type="text" class="search-query" ng-model="query" placeholder="Search Apartment">
+									<span class="add-on"><i class="icon-search"></i></span>
+									<label>&nbsp;&nbsp;Additional Filter: </label>
+									<select placeholder="Addon Filter" ng-model="filterdata">
+										  <option value="">All</option>
+										  <option value="kyc-done">KYC-Complted</option>
+										  <option value="kyc-pending">KYC-Pending</option>
+										  <option value="owner">Occupancy-Owned</option>
+										  <option value="tenant">Occupancy-Tenant</option>
+										  <option value="empty">Occupancy-Empty</option>
+										  <option value="defaulter">Maintenance-Defaulter</option>
+									</select>
+								</div>
+							</div>
+
+
+						</div>
+						<div class="span4">						
+								<div class="pull-right">									
+									<button ng-controller="ModalDemoCtrl" class="btn btn-primary" ng-click="open()"><i class="icon-envelope"></i>&nbsp;&nbsp;Send Mail</button>	
+								</div>
+						</div>
+						</form>
+					</div>
+				  </div>
+				</div>
+				<h5>Filtered list has {{filtered.length}} items</h5>
+				<table class="table table-condensed">
+				  <tr>
+					<th><a href="" ng-click="predicateBlueChip = natural('flatnumber')">Flat No.</a></th>
+					<th>Sellable Area</th>
+					<th>Occupancy Status</th>
+					<th>KYC Status</th>
+					<th>Owner's Name</th>
+					<th class="amount"><a href="" ng-click="predicateBlueChip = sortAmoutFunction">Total Dues</a></th>
+					<th class="action">Details</a></th>
+					<th class="action">Payments</a></th>
+				  </tr>
+									<tr ng-class="{true:'active',false:''}[active.flatnumber == item.flatnumber]" ng-repeat="item in filtered = (items | filter:query | filter:addFilter |orderBy:predicateBlueChip)"  ng-click="toggleItem(item)">			
+										<td>{{item.flatnumber}}</td>
+										<td>{{item.sellableArea}}</td>
+										<td>
+											<span ng-show="item.status == '0'" class="label">Empty</span>
+											<span ng-show="item.status == '1'" class="label label-success"">Owner</span>
+											<span ng-show="item.status == '2'" class="label label-warning">Tenant</span>
+										</td>
+										<td class="gaskyc{{item.gasKYC}}"></td>
+										<td>{{item.owner.name}}</td>
+										<td ng-class="getClassNameForAmount(item)">{{(item.maintenanceDetails.maintenanceDueTotal- item.maintenanceDetails.maintenancePaidTotal)  | currency : "&#8377;"}}</td>
+										<td class="action" ng-controller="ModalNewApartmentCtrl"><a href="" ng-click="open(item,$index)"><i class="icon-paperclip"></i></a></td>
+										<td class="action" ng-controller="ModalPaymentCtrl"><a href="" ng-click="open(item,$index)"><i class="icon-edit"></i></a></td>
+									</tr>
+				</table>
+         </div>
+
+    <div>
+		<ng-include src="'pages/footer.html'"></ng-include>
+	</div>
+
+	<script type="text/ng-template" id="sendMailModal">
+		<ng-include src="'pages/sendMailForm.html'"></ng-include>
+	</script>
+
+	<script type="text/ng-template" id="newApartmentModal">
+		<ng-include src="'pages/newApartmentForm.html'"></ng-include>
+	</script>
+
+	<script type="text/ng-template" id="paymentModal">
+		<ng-include src="'pages/paymentModal.html'"></ng-include>
+	</script>
+
+
+</div>

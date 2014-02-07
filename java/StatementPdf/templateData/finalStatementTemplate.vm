@@ -1,0 +1,190 @@
+<html>
+<head>
+	<style type="text/css">
+	table.gridtable {
+		font-family: verdana,arial,sans-serif;
+		font-size:11px;
+		color:#333333;
+		border-width: 1px;
+		border-color: #666666;
+		border-collapse: collapse;
+	}
+	table.gridtable th {
+		border-width: 1px;
+		padding: 8px;
+		border-style: solid;
+		border-color: #666666;
+		background-color: #dedede;
+	}
+
+	table.gridtable td {
+		border-width: 1px;
+		padding: 8px;
+		border-style: solid;
+		border-color: #666666;
+		background-color: #ffffff;
+	}
+
+	table.gridtable td.heading1 {
+		font-size: 13px;
+		font-weight:bold;
+		text-align: center;
+	}
+
+	table.gridtable td.heading2 {
+		font-weight:bold;
+		text-align: left;
+	}
+
+	table.gridtable td.heading3 {
+		font-weight:bold;
+		text-align: right;
+	}
+
+	table.gridtable td.due { 
+#if (${duesPending})
+		background-color: #4096EE;		
+#else
+		background-color: #FF9933;		
+#end		
+	}
+
+	h1.logo {
+	  height: 120px;
+	  margin-left: 170px;
+	  background: url("logo.png");
+	  background-repeat: no-repeat;
+	}
+
+	h1 {	
+    font-family: arial,sans-serif;
+    font-style: normal;
+	font-size: 24px;
+    font-weight: bold;
+    margin: 0 0 10px;
+    padding: 0;
+	}
+
+	.title {
+		border-bottom: 1px solid #dedede;
+		margin-bottom: 20px;
+	}
+
+
+	#form_wrapper
+	{
+		margin:0 auto;
+		height:100px;
+		width:1030px;
+		padding:8px;	 
+	}
+	 
+	.col-1 {
+	 
+		width:20%;
+		float:left;
+	}
+
+	.col-2 {
+		width:65%;
+		float:right; 
+	}
+
+	#form_wrapper label{ 
+		margin-bottom:10px;
+		font-family: verdana,arial,sans-serif;
+		font-size:13px;
+		color:#333333;
+		font-weight:bold;
+		text-align:left;
+		display:block;
+	}
+	
+	#navlist li { 
+		list-style-type: circle; 
+		font-weight: normal;		
+	}
+	
+	</style>
+</head>
+
+<body>
+
+<div align="center">
+
+
+		<h1 class="logo">
+		</h1>
+
+		<div class="title">
+			<h1>
+				Maintenance Payment Summary Report
+			</h1>
+		</div>
+
+
+		<div id="form_wrapper">
+					<div class="col-1"> 
+					    <label>Owner's Name:</label> 
+                        <label>Apartment Number:</label> 
+                        <label>Sellable Area:</label>
+                    </div>
+                    <div class="col-2"> 
+                        <label>${ownerName}</label> 
+                        <label>${flatNumber}</label> 
+                        <label>${sellableArea}</label>
+                    </div>
+		</div>
+
+		<table class="gridtable">
+		 <tr>
+		  <td colspan="4" class="heading1" >Maintenance Payment Details from November-2009 to March-2013</td>
+		 </tr>
+		 <tr>
+		  <td class="heading2">Maintenance Period</td>
+		  <td class="heading2">Maintenance Charge <br><span>(Per Square Feet) </span></td>
+		  <td class="heading2">Amount Receivable</td>
+		  <td class="heading2">Amount Paid</td>
+		 </tr>
+		 <tr>
+		  <td align="left">2009-2010 (5 Months)</td>
+		  <td align="left">INR 2.00</td>
+		  <td align="right">INR ${maintenanceDue0910}</td>
+		  <td align="right">INR ${maintenancePaid0910}</td>
+		 </tr>
+		 <tr>
+		  <td align="left">2010-2011 (12 Months)</td>
+		  <td align="left">INR 2.00</td>
+		  <td align="right">INR ${maintenanceDue1011}</td>
+		  <td align="right">INR ${maintenancePaid1011}</td>
+		 </tr>
+		 <tr>
+		  <td align="left">2011-2012 (12 Months)</td>
+		  <td align="left">INR 2.00</td>
+		  <td align="right">INR ${maintenanceDue1112}</td>
+		  <td align="right">INR ${maintenancePaid1112}</td>
+		 </tr>
+		 <tr>
+		  <td align="left">2012-2013 (12 Months)</td>
+		  <td align="left">INR 2.00 (First half)<br> INR 2.50 (Second half)</td>
+		  <td align="right">INR ${maintenanceDue1213}</td>
+		  <td align="right">INR ${maintenancePaid1213}</td>
+		 </tr>
+		 <tr>
+		  <td class="heading3" colspan="2" >Total</td>
+		  <td align="right">INR ${maintenanceDueTotal}</td>
+		  <td align="right">INR ${maintenancePaidTotal}</td>
+		 </tr>
+		 <tr>
+		  <td class="heading3" colspan="3" >Total Dues</td>
+		  <td class="due" align="right">INR ${totalDues}</td>
+		 </tr>		 
+
+		</table>
+
+</div>
+
+
+</body>
+
+</html>

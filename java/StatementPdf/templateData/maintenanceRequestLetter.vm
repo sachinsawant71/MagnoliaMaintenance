@@ -1,0 +1,86 @@
+<html>
+<head>
+	<style type="text/css">
+	p {
+		font-family: verdana,arial,sans-serif;
+		font-size:14px;
+		color:#333333;
+		border-width: 1px;
+		border-color: #666666;
+		border-collapse: collapse;
+	}
+	p span {
+		display: block;
+	}
+
+	td {
+		font-family: verdana,arial,sans-serif;
+		font-size:14px;
+		color:#333333;
+		border-width: 1px;
+		border-color: #666666;
+		border-collapse: collapse;
+	}
+
+	.note { 
+		padding-left:7cm;
+		font-weight:bold;
+		}
+
+
+	</style>
+</head>
+
+<body>
+
+<p>To,
+<p>${ownerName}</p>
+<p>Flat Number: ${flatNumber},</p>
+<p>Magnolia Apartments,</p>
+<p>Sr. No. 136/2, Baner Pashan Link Road,</p> 
+<p>Pashan,</p>
+<p>PUNE – 411 021.</p>
+<br/>
+
+<div style="padding-left:5cm;"><p>Subject: Contribution towards common maintenance expenses of Magnolia Apartments - 1st October 2013 to 31st March 2014</p></div>
+<br/>
+<p>Dear Sir / Madam,</p>
+<p>&nbsp;</p>
+<p>To manage day to day maintenance affairs of the apartment it is necessary to raise funds from all co-owners.  As per AGM held on 2nd September 2012, all flat owners of Magnolia Apartments must contribute maintenance amount @ Re.2.50/- per sq.ft. Per month as per salable area of their respective flats, to meet the maintenance expenses. The details of your contribution for the period - 1st October 2013 to 31st March 2014 is as follows - </p>
+<p>&nbsp;</p>
+<div class="note">
+<p><span>Salable area of your flat :  ${salablearea} Square Feet</span><p><span>Your contribution : INR ${totalContribution}</span></p></div>
+<p>&nbsp;</p>
+<p>Contribution is payable even if the flat is not occupied for dwelling. If you have not paid arrears, please pay it along with the present amount. The last date for the Payment is 15th of Dec 2014.</p> 
+<p>&nbsp;</p>
+<p>As decided in the AGM held on 11th Dec. 2011, late payments will be charged penalty/ interest at 18% p.a.
+Please send your queries related to Payment of Maintenance Charges to <a href="mailto:magnoliapashan.finance@gmail.com?Subject=Maintenace%20Payment%20-%20-2013">
+magnoliapashan.finance@gmail.com</a>.</p>
+<p>&nbsp;</p>
+<p>Please check the attachment for the payment options. </p>
+<p>&nbsp;</p>
+<p>Please ignore the mail, if you have already paid the maintenance.</p>
+</br>
+<p>&nbsp;</p>
+<p>Thanking you,</p>
+<p>&nbsp;</p>
+</br>
+<p>For Magnolia Apartments</p>
+<p>&nbsp;</p>
+<table width="900">
+	<tr>
+		<td>Mr. Sachin Sawant<td>
+		<td>Mr. Shailendra Goverdhan<td>
+	</tr>
+	<tr>
+		<td>President<td>
+		<td>Vice-President<td>
+	</tr>
+</table>
+
+
+
+</body>
+
+</html>
+

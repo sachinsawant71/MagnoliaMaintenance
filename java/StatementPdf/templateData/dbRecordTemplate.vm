@@ -1,0 +1,48 @@
+{
+"flatnumber": "${flatNumber}",
+"sellableArea": "${sellableArea}",
+"status": 1,
+"gasKYC": 0,
+"notes": "${notes}",
+"owner":
+	{
+	"name": "${ownerName}",
+	"address": "",
+	"emails" : [${emails}],
+	"phones": ["${phone1}","${phone2}"]
+	},
+"tenant" : {
+	"emails" : [],
+	"phones": []
+
+	},
+"maintenanceDetails": {
+	"maintenanceDueTotal" : ${maintenanceDueTotal},
+	"maintenancePaidTotal" : ${maintenancePaidTotal},
+	"totalDues" : ${totalDues},
+	"paymentSummary" : 	[
+		{
+			"period": "2009-10",
+			"maintenanceDue" : ${maintenanceDue0910},
+			"maintenancePaid": ${maintenancePaid0910}
+		},
+		{
+			"period": "2010-11",
+			"maintenanceDue" : ${maintenanceDue1011},
+			"maintenancePaid": ${maintenancePaid1011}
+		},
+		{
+			"period": "2011-12",
+			"maintenanceDue" : ${maintenanceDue1112},
+			"maintenancePaid": ${maintenancePaid1112}
+		},
+		{
+			"period": "2012-13",
+			"maintenanceDue" : ${maintenanceDue1213},
+			"maintenancePaid": ${maintenancePaid1213}
+		}
+	]
+
+   }
+
+}

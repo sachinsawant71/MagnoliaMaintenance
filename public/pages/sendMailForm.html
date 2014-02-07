@@ -1,0 +1,28 @@
+
+<div class="modal-header">
+	<h3>Send Email to all Apartment Owners</h3>
+</div>
+<div class="modal-body">
+	<div class="dropdown">
+	  <a class="dropdown-toggle">Select Message Template</a>
+	  <ul class="dropdown-menu">
+		<li ng-repeat="choice in messageTemplates">
+		  <a ng-click="selectTemplate({{$index}})">{{choice.id}}</a>
+		</li>
+	  </ul>
+	</div>
+	<form method="post">
+		<div class="control-group">
+			  <div class="controls">
+			    <input id="textinput" ng-model="messageSubject" name="messageSubject" placeholder="Message Subject" class="input-xxlarge" type="text">			    
+			  </div>
+		</div>
+		<textarea id="messageEditor" placeholder="Message body" ui-tinymce ng-model="messageTemplates.selectedTemplate"></textarea>
+		{{messageTemplates.selectedTemplate}}
+	</form>
+	
+</div>
+<div class="modal-footer">
+	<button class="btn btn-primary" ng-click="ok()">Send</button>
+	<button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+</div>

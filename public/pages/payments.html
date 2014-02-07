@@ -1,0 +1,73 @@
+<div style="width:100%">
+    <div class="paddRow aboutRow">
+        <div class="wrap">
+            <h3>Maintenance Payments</h3>
+        </div>
+    </div>
+
+	<div class="navbar">
+
+
+				  <div class="navbar-inner">
+					<div class="row-fluid">
+						<form>
+						<div class="span6">
+							<div class="navbar-search pull-left">		
+								<div class="form-inline">
+									<input type="text" class="search-query" ng-model="query" placeholder="Search Payments">
+									<span class="add-on"><i class="icon-search"></i></span>
+								</div>
+							</div>
+						</div>
+						<div class="span6">		
+							<div class="pull-right">	
+							   <div class="btn-group">
+									<button ng-controller="ModalDemoCtrl" class="btn btn-primary" ng-click="open()"><i class="icon-chevron-up"></i>&nbsp;&nbsp;Maintenance</button>	
+							   </div>
+							</div>
+						</div>
+						</form>
+					</div>
+				  </div>
+				</div>
+
+
+				<table class="table table-condensed">
+				  <tr>
+					<th>Sr. No.</a></th>
+					<th>Date</th>
+					<th>Payment Type</th>
+					<th>Bank Name</th>
+					<th>Apartment No.</th>
+					<th>Amount</th>
+					<th class="action">Details</a></th>
+					<th class="action">Delete</a></th>
+				  </tr>
+						<tr ng-class="" ng-repeat="item in payments">	
+							<td>{{$index +1}}</td>
+							<td>{{item.date | date:'dd-MM-yyyy'}}</td>
+							<td>{{item.type}}</td>
+							<td>{{item.bank}}</td>
+							<td>{{item.flatnumber}}</td>
+							<td>{{item.amount | currency : "&#8377;"}}</td>
+							<td class="action" ng-controller="ModalPaymentCtrl"><a href="" ng-click="open(null,$index,item)"><i class="icon-wrench"></i></a></td>
+							<td class="action"><a href="" ng-click="removePayment($index,item)"><i class="icon-remove"></i></a></td>
+						</tr>
+				</table>
+
+
+
+	</div>
+
+
+
+    <div>
+		<ng-include src="'pages/footer.html'"></ng-include>
+	</div>
+
+
+	<script type="text/ng-template" id="paymentModal">
+		<ng-include src="'pages/paymentModal.html'"></ng-include>
+	</script>
+
+</div>

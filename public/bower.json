@@ -1,0 +1,6 @@
+{
+    "name": "Magnolia",
+    "dependencies": {
+	"angular-ui-date": "latest"
+    }
+}

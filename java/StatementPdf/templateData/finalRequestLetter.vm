@@ -1,0 +1,49 @@
+<html>
+<head>
+	<style type="text/css">
+	p {
+		font-family: verdana,arial,sans-serif;
+		font-size:14px;
+		color:#333333;
+		border-width: 1px;
+		border-color: #666666;
+		border-collapse: collapse;
+	}
+
+	.due { 
+#if (${duesPending})
+		background-color: #4096EE;		
+#else
+		background-color: #FF9933;		
+#end		
+	}
+
+
+	</style>
+</head>
+
+<body>
+
+<p>Dear Apartment Owner ${flatNumber},</p>
+<br/>
+<p>Greetings from Magnolia Apartments!</p>
+<br/>
+
+<p>Sub :  Confirmation of Maintenance payment data.</p>
+<br/>
+ 
+<p>With our diligent efforts, maintenance payment data for year 2009 to 2013 has been collated. Please check the attached file for the details. Kindly confirm the payments details through email within a week.</p>
+<br/>
+<p>In the event of disagreement,   please send us copy of your bank statement  [reflecting payment to Magnolia] which will assist us in reconciling the differences.
+As this reconciliation is very crucial for Audit : 2011-12, 2012-13, your instantaneous response will be highly appreciated.</p>
+<br/> 
+<p>Thank you!</p>
+<br/>
+<br/> 
+<p>Regards,</p>
+<br/>
+<p>Magnolia Maintenance Office</p>
+
+</body>
+
+</html>

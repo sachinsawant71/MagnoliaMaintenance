@@ -1,0 +1,189 @@
+
+<div class="modal-header">
+	<h3>Member's Contribution - Apartment {{item.flatnumber}}</h3>
+</div>
+<div class="modal-body">
+		<form class="form-horizontal">
+			<fieldset>
+
+					<div class="control-group">
+					  <label class="control-label" for="textinput">Apartment Number</label>
+					  <div class="controls">
+						<input id="textinput" ng-model="item.flatnumber" name="textinput" disabled="true" class="input-xlarge" type="text">			    
+					  </div>
+					</div>
+
+					<div class="control-group">
+					  <label class="control-label" for="textinput">Owner's Name</label>
+					  <div class="controls">
+						<input id="textinput" name="textinput" ng-model="item.owner.name" disabled="true" class="input-xlarge" type="text">				
+					  </div>
+					</div>
+
+					<div class="control-group">
+					  <label class="control-label" for="selectbasic">Payment Type</label>
+					  <div class="controls">
+						<select id="selectbasic" ng-disabled="readonly" name="selectbasic" ng-model="payment.type" class="input-xlarge">
+						  <option value="Maintenance Payment" >Maintenance Payment</option>
+						  <option value="Clubhouse Rental" >Clubhouse Rental</option>
+						  <option ng-if="item.status == 2" value="Tenant Administration Fees" >Tenant Administration Fees</option>
+						</select>
+					  </div>
+					</div>
+
+					<div ng-show="!!payment.type">
+
+						<div ng-show="payment.paymentType == 'Maintenance Payment'">
+								<div class="control-group">
+								  <label class="control-label" for="period">Maintenance Period</label>
+								  <div class="controls">
+									<select id="period" ng-disabled="readonly" ng-model="payment.period" name="period" class="input-xlarge">
+									  <option>October 2013 - March 2014</option>
+									  <option>April 2014 - September 2014</option>
+									  <option>October 2014 - March 2015</option>									  
+									  <option>April 2015 - September 2015</option>
+									</select>
+								  </div>
+								</div>
+						</div>
+
+						<div ng-show="payment.type == 'Clubhouse Rental'">
+							<div class="control-group">
+							  <label class="control-label" for="eventDate">Event Date</label>
+							  <div class="controls">
+								  <input type="eventDate" ng-model="payment.eventDate" class="form-control" datepicker-popup="dd-MM-yyyy" show-weeks="false" show-button-bar="false" min="01-01-2014" ng-required="true" />
+							  </div>
+							</div>
+						</div>
+
+						<div ng-show="payment.type == 'Tenant Administration Fees'">
+							<div class="control-group">
+							  <label class="control-label" for="prependedtext">Period</label>
+							  <div class="controls">
+								<div class="input-prepend">
+								  <span class="add-on">From</span>
+								  <input ng-model="payment.tenantFromDate" id="fromDate" name="fromDate" class="input-medium" placeholder="" type="text">
+								</div>								
+							  </div>
+							</div>
+							<div class="control-group">
+							  <label class="control-label" for="prependedtext"></label>
+							  <div class="controls">
+								<div class="input-prepend">
+								  <span class="add-on">To&nbsp;&nbsp;&nbsp;</span>
+								  <input ng-model="payment.tenantToDate" id="toDate" name="toDate" class="input-medium" placeholder="" type="text">
+								</div>
+								
+							  </div>
+							</div>
+						</div>
+
+
+						<div class="control-group">
+						  <label class="control-label" for="amout">Amount</label>
+						  <div class="controls">
+						    <div class="input-prepend">
+							    <span class="add-on">INR&nbsp;</span>
+								<input ng-model="payment.amount" ng-disabled="readonly" id="amout" name="amout" type="text" placeholder="" class="input-large">
+							</div>
+						  </div>
+						</div>
+
+						<div class="control-group">
+						  <label class="control-label" for="selectbasic">Payment Mode</label>
+						  <div class="controls">
+							<select id="paymentMode" name="paymentMode" ng-disabled="readonly" ng-model="payment.mode" class="input-xlarge">
+							  <option value="Check">Check</option>
+							  <option value="Online Transfer" >Online Transfer</option>
+							</select>
+						  </div>
+						</div>
+
+
+
+						<div ng-show="payment.mode == 'Check'">
+							<div class="control-group">
+							  <label class="control-label" for="checkno">Check Number</label>
+							  <div class="controls">
+								<input ng-model="payment.checkNumber" id="checkno" ng-disabled="readonly" name="checkno" type="text" placeholder="" class="input-xlarge">							
+							  </div>
+							</div>
+
+							<div class="control-group">
+							  <label class="control-label" for="bankname">Bank Name</label>
+							  <div class="controls">
+								<input ng-model="payment.bank" id="bankname" name="bankname" ng-disabled="readonly" type="text" typeahead="bank for bank in banks | filter:$viewValue | limitTo:8" class="input-xlarge">	
+							  </div>
+							</div>
+
+							<div class="control-group">
+							  <label class="control-label" for="checkDate">Date</label>
+							  <div class="controls">
+								  <input type="checkDate" ng-model="payment.checkDate" class="form-control" ng-disabled="readonly" datepicker-popup="dd-MM-yyyy" min="22-10-2009" ng-required="true" />
+							  </div>
+							</div>
+
+							<div class="control-group">
+							  <label class="control-label" for="textarea">Notes</label>
+							  <div class="controls">                     
+								<textarea  ng-model="payment.notes" id="notes" ng-disabled="readonly" name="notes" rows="4" cols="150">additional notes</textarea>
+							  </div>
+							</div>
+
+
+						</div>
+
+						<div ng-show="payment.mode == 'Online Transfer'">
+							<div class="control-group">
+							  <label class="control-label" for="checkno">Account Number</label>
+							  <div class="controls">
+								<input ng-model="payment.acctNumber" ng-disabled="readonly" id="acctNo" name="acctNo" type="text" placeholder="" class="input-xlarge">								
+							  </div>
+							</div>
+
+							<div class="control-group">
+							  <label class="control-label" for="bankname">Bank Name</label>
+							  <div class="controls">
+								<input ng-model="payment.bank" id="bankname" name="bankname" ng-disabled="readonly" type="text" typeahead="bank for bank in banks | filter:$viewValue | limitTo:8" class="input-xlarge">	
+							  </div>
+							</div>
+
+							<div class="control-group">
+							  <label class="control-label" for="checkDate">Date</label>
+							  <div class="controls">
+								  <input type="checkDate" ng-model="payment.checkDate" class="form-control" datepicker-popup="dd-MM-yyyy" min="22-10-2009" ng-required="true" />
+								  <span class="input-group-btn">
+									<button class="btn btn-default" ng-click="openDate($event)"><i class="icon-calendar"></i></button>
+								  </span>		
+							  </div>
+							</div>
+
+
+							<div class="control-group">
+							  <label class="control-label" for="textarea">Notes</label>
+							  <div class="controls">                     
+								<textarea  ng-model="payment.notes" id="notes" name="notes" rows="4" cols="150">additional notes</textarea>
+							  </div>
+							</div>
+
+						</div>
+
+
+	
+
+					</div>
+
+			</fieldset>
+		</form>
+</div>
+<div class="modal-footer">
+	<div ng-show="!readonly">
+		<button class="btn btn-primary" ng-click="ok()">Save</button>
+		<button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+	</div>	
+	<div ng-show="readonly">
+		<button class="btn btn-primary" ng-click="ok()">Email Statement</button>
+		<button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+	</div>
+	
+</div>

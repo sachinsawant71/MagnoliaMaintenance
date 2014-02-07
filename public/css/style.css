@@ -1,0 +1,56 @@
+﻿
+#appname {color:#322CA3;}
+
+.gridStyle {
+    border: 1px solid rgb(212,212,212);
+    height: 500px
+}
+
+.table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
+  background-color: #87CEEB;
+}
+
+.selected {
+        background-color: #87CEEB;
+}
+
+.move-rigth{
+    display: block;
+    float: right;
+}
+
+.gaskyc0:before {
+    font-family: 'FontAwesome';
+    font-size:1.0em;
+    color:red;
+    content: '\f00d';  /* the ok icon */
+    padding-right: 4px; /* plus 4px spacing */
+}
+
+.gaskyc1:before {
+    font-family: 'FontAwesome';
+    font-size:1.0em;
+    color:green;
+    content: '\f00c';  /* the ok icon */
+    padding-right: 4px; /* plus 4px spacing */
+}
+
+#filters h2.green { background: #A9E2F3; padding: 0.1em 1%; margin-bottom: 0.3em; border-top-left-radius: 5px; border-radius: 5px; margin-top: 0; font-size: 1.2em; padding: 0.3em 1%; }
+#filters h2.red { background: #F6CECE; padding: 0.1em 1%; margin-bottom: 0.3em; border-top-left-radius: 5px; border-radius: 5px; margin-top: 0; font-size: 1.2em; padding: 0.3em 1%; }
+#highlight { background: #ddd;}
+
+td.action {text-align: right;}
+th.action {text-align: right;}
+td.amount {text-align: right;}
+td.action {text-align: right;}
+.amount-red {color:red; text-align: right !important;}
+.amount-green {color:green; text-align: right !important;}
+th.amount {text-align: right;}
+td.bold {font-weight:bold;}
+tr:hover {background-color: #F2F3F4}
+.active {background-color: #BCD4E6}
+fieldset {background-color : white}
+.tabStyle {background-color:transparent}
+.bkwhite {background-color : white}
+
+

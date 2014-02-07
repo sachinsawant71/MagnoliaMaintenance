@@ -1,0 +1,42 @@
+<html>
+<head>
+	<style type="text/css">
+	p {
+		font-family: verdana,arial,sans-serif;
+		font-size:14px;
+		color:#333333;
+		border-width: 1px;
+		border-color: #666666;
+		border-collapse: collapse;
+	}
+
+	.due { 
+#if (${duesPending})
+		background-color: #4096EE;		
+#else
+		background-color: #FF9933;		
+#end		
+	}
+
+
+	</style>
+</head>
+
+<body>
+
+<p>Dear Apartment Owner ${flatNumber},</p>
+<br/>
+<p>Greetings from Magnolia Apartments!</p>
+<br/>
+<p>Please find attached your maintenance payment Summary for year 2011-12 and year 2012-13. As of today, your outstanding past due balance is INR <span class="due">${totalDues} </span>, as detailed on the enclosed statement of account. If you have any questions, please contact us at magnolia.pashan@gmail.com.</p>
+<br/> 
+<p>Thank you!.</p>
+<br/>
+<br/> 
+<p>Regards,</p>
+<br/>
+<p>Magnolia Maintenance Office</p>
+
+</body>
+
+</html>
