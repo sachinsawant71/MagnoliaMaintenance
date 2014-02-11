@@ -39,8 +39,8 @@ public class StatementSender {
 	  public void read() throws IOException  {
 		  
 	    final String username = "magnoliapashan.finance@gmail.com";
-	    final String password = "gowind105";
-	    //final String password = "Polar$987";
+	    final String password = "xxxxx";
+	    //final String password = "xxxx";
 	 
 		Properties props = new Properties();
 		props.put("mail.smtp.auth", "true");
