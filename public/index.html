@@ -1,65 +1,57 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="example359" xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en" ng-app="magnolia" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8" />
-    <meta name="author" content="Script Tutorials" />
-    <title>Responsive website using AngularJS | Script Tutorials</title>
+    <title>Application</title>
     <meta name="description" content="Responsive website using AngularJS - demo page">
-
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
 
     <!-- add styles -->
-    <link href="css/style.css" rel="stylesheet" type="text/css" />
+   <link rel="stylesheet" href="css/bootstrap.css"  type="text/css"/>
+   <link rel="stylesheet" href="css/ng-grid.css"  type="text/css"/>
+   <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+   <link href="css/style.css" rel="stylesheet" type="text/css" />
+
 
     <!-- add javascripts -->
     <script src="js/jquery-2.0.3.min.js"></script>
     <script src="js/angular.min.js"></script>
-    <script src="js/app.js"></script>
+    <script src="js/angular-route.min.js"></script>
+	<script src="js/angular-resource.js"></script>
+    <script src="js/app.js"></script>	
+	<script src="js/services.js"></script>
     <script src="js/controllers.js"></script>
+	<script src="js/bootstrap.js"></script>
+	<script src="js/ng-grid-2.0.7.min.js"></script>
+	<script src="js/ui-bootstrap-tpls-0.6.0.min.js"></script>
+	<script src="js/naturalSortVersion.min.js"></script>		
+	<script type="text/javascript" src="js/tinymce.js"></script>	
+    <script type="text/javascript" src="js/tinymce-angular.js"></script>
+	<script type="text/javascript" src="js/ui-bootstrap-alerts.min.js"></script>	
 </head>
 <body>
-    <header>
-        <div class="wrap">
-            <!-- logo -->
-            <a href="#!"><img class="logo" src="images/logo.png" /></a>
-
-            <!-- navigation menu -->
-            <nav>
-                <ul>
-                    <li><a id="workBtn" href="#!/" ng-class="{activeSmall:part == 'projects'}" >Our Projects</a></li>
-                    <li><a id="privacyBtn" href="#!/privacy" ng-class="{activeSmall:part == 'privacy'}">Privacy &amp; Terms</a></li>
-                    <li><a id="aboutBtn" href="#!/about" ng-class="{activeSmall:part == 'about'}">About</a></li>
-                    <li style="margin-right:0px"><a id="contactBtn" class="active" href="javascript: void(0)" ng-click="showForm()">Contact Us</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-
-    <!-- contact us form -->
-    <div class="paddRow contactRow">
-        <div class="wrap">
-            <div class="head">Contact Us</div>
-            <img class="close" src="images/close.png" ng-click="closeForm()" />
-            <form ng-submit="save()" class="contactForm" name="form" ng-hide="loaded">
-                <input class="input" required="required" type="text" name="name" placeholder="your name" ng-model="message.name" />
-                <input class="input email" required="required" type="email" name="email" value="" placeholder="your email" ng-model="message.email" /><br />
-                <textarea class="textarea" rows="5" required="required" placeholder="your message" ng-model="message.text" ></textarea>
-                <button class="btn green">send message</button>
-            </form>
-
-            <!-- contact us form response messages -->
-            <div ng-show="process" style="text-align:center">
-                <img class="loader" src="images/loader.png" />
-            </div>
-            <div ng-show="success"><p>Your message has been sent, thank you.</p></div>
-        </div>
-    </div>
+	<div class="container">
+		<h1 id="appname">Magnolia Apartments Management System</h1>
+		<div class="navbar">
+              <div class="navbar-inner">
+                <div class="container">
+                  <ul class="nav">
+                    <li ng-class="{active:part == 'projects'}"><a href="#!/">Apartments</a></li>
+					<li ng-class="{active:part == 'payments'}"><a href="#!/payments">Payments</a></li>
+                    <li ng-class="{active:part == 'contracts'}"><a href="#!/contracts">Contracts</a></li>
+                    <li ng-class="{active:part == 'documents'}"><a href="#!/documents">Documents</a></li>                    
+					<li ng-class="{active:part == 'config'}"><a href="#!/config"><i class="icon-gears"></i></a></a></li>					
+                  </ul>
+                </div>
+              </div>
+         </div>
 
     <!-- main content -->
     <div style="position:relative">
         <div style="width:100%" ng-view ng-animate="{enter: 'view-enter', leave: 'view-leave'}"></div>
     </div>
 
+	</div>
 </body>
 </html>
