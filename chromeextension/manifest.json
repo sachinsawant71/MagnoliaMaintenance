@@ -1,0 +1,21 @@
+{
+	"manifest_version": 2,
+	"name": "Magnolia Maitenance",	
+	"description": "Web Application for Magnolia Maintenance",
+	"version": "1.0",
+	"icons": {
+	"128": "app.png"
+	},
+	"app": {
+	"urls": [
+		"http://localhost:3000/index1.html"
+	],
+	"launch": {
+	"web_url": "http://localhost:3000/index1.html"
+	}
+	},
+	"permissions": [
+	"unlimitedStorage",
+	"notifications"
+	]
+}
