@@ -1,8 +1,10 @@
 ﻿'use strict';
 
 // angular.js main app initialization
-var app = angular.module('magnolia', ['ngRoute','magnolia.services','ui.bootstrap','naturalSort','ui.tinymce','ui.bootstrap.alerts']).
-    config(['$routeProvider', function ($routeProvider) {
+var app = angular.module('magnolia', ['ngRoute','magnolia.services','ui.bootstrap','naturalSort','ui.tinymce','ui.bootstrap.alerts']);
+
+//Define Routing for app
+app.config(['$routeProvider', function ($routeProvider) {
       $routeProvider.
         when('/', { templateUrl: 'pages/index.html', activetab: 'projects', controller: HomeCtrl }).
         when('/project/:projectId', {

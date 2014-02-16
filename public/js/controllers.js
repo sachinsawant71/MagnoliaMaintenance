@@ -178,9 +178,12 @@ var ModalInstanceNewApartmentCtrl = function ($scope, $modalInstance, item,$filt
       $scope.messageText = items[index].template;
   };
 
-	$scope.resetAddress = function() {
-		$scope.item.owner.address ="";
-	};
+  $scope.resetTenantAddress = function() {
+	$scope.item.owner.address = '';
+	$scope.item.tenant = new Object();
+	$scope.item.tenant.emails = new Array();
+	$scope.item.tenant.phones = new Array();
+  };
 
 
   $scope.ok = function () {
@@ -203,6 +206,7 @@ var ModalInstanceNewApartmentCtrl = function ($scope, $modalInstance, item,$filt
 			apartment.tenant.emails[0] = item.tenant.emails[0];
 			apartment.tenant.phones = new Array();
 			apartment.tenant.phones[0] = item.tenant.phones[0];
+			apartment.tenant.phones[1] = item.tenant.phones[1];
 			apartment.tenant.policeverification = item.tenant.policeverification
 			apartment.tenant.agreement = item.tenant.agreement
 			apartment.tenant.registration =	item.tenant.registration

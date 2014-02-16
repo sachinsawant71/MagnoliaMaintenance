@@ -45,11 +45,11 @@
 			      Empty
 			    </label>
 			    <label class="radio inline" for="status-1">
-			      <input name="status" ng-model="item.status" id="status-1" ng-click="resetAddress()" value="1" type="radio">
+			      <input name="status" ng-model="item.status" id="status-1" ng-click="resetTenantAddress()" value="1" type="radio">
 			      Occupied
 			    </label>
 			    <label class="radio inline" for="status-2">
-			      <input name="status" ng-model="item.status" id="status-2" value="2" type="radio">
+			      <input name="status" ng-model="item.status" id="status-2" ng-click="resetTenantAddress()" value="2" type="radio">
 			      Rented
 			    </label>
 			  </div>
@@ -239,6 +239,13 @@
 					  <label class="control-label" for="phone1">Phone No.</label>
 					  <div class="controls">
 						<input id="phone1" name="phone1" ng-model="item.tenant.phones[0]" placeholder="Phone Number" class="input-xlarge" type="text">						
+					  </div>
+				</div>
+
+				<div class="control-group">
+					  <label class="control-label" for="phone2">Alternate Phone No.</label>
+					  <div class="controls">
+						<input id="phone2" name="phone2" ng-model="item.tenant.phones[1]" placeholder="Alternate Phone Number" class="input-xlarge" type="text">						
 					  </div>
 				</div>
 
