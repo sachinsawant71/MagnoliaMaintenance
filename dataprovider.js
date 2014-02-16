@@ -83,7 +83,7 @@ ApartmentProvider.prototype.update = function(apartment, callback) {
 															  agreement : apartment.tenant.agreement,
 															  registration : apartment.tenant.registration,
 															  emails: [apartment.tenant.emails[0]],
-															  phones: [apartment.tenant.phones[0]]
+															  phones: [apartment.tenant.phones[0],apartment.tenant.phones[1]]
 													},
 													tenant: {}
 												}
