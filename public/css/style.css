@@ -53,4 +53,17 @@ fieldset {background-color : white}
 .tabStyle {background-color:transparent}
 .bkwhite {background-color : white}
 
+.modal-huge {
+    max-height: 600px;
+    overflow: auto;
+}
+
+.container,
+.navbar-static-top .container,
+.navbar-fixed-top .container,
+.navbar-fixed-bottom .container {
+  width: 1050px;
+}
+
+
 

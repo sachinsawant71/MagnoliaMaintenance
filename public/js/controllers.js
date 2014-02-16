@@ -155,6 +155,7 @@ var ModalNewApartmentCtrl = function ($scope, $modal, $log) {
 		var modalInstance = $modal.open({
 		  templateUrl: 'newApartmentModal',
 		  controller: ModalInstanceNewApartmentCtrl,
+		  windowClass : 'modal-huge',
 		  resolve: {
 			item: function () {
 			  return item;
@@ -260,7 +261,7 @@ var ModalPaymentCtrl = function ($scope, $modal, $log) {
 		$scope.active = item;
 		var modalInstance = $modal.open({
 		  templateUrl: 'paymentModal',
-		  controller: ModalInstancePaymentCtrl,
+		  controller: ModalInstancePaymentCtrl,		
 		  resolve: {
 			item: function () {
 			  return {"item" : item,"payment" : payment};

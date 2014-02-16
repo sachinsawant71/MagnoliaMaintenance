@@ -1,5 +1,5 @@
 <div class="modal-header">
-	<h3>Details for {{item.flatnumber}} </h3>
+	<h4>Details for {{item.flatnumber}} </h4>
 </div>
 
 <div class="modal-body">
@@ -228,7 +228,7 @@
 				</div>
 
 				<div class="control-group">
-					  <label class="control-label" for="email1">Email-ID</label>
+					  <label class="control-label" for="email1">EMail</label>
 					  <div class="controls">
 						<input id="email1" name="email1" ng-model="item.tenant.emails[0]" placeholder="Email Id" class="input-xlarge" type="text">
 						
@@ -236,16 +236,14 @@
 				</div>
 
 				<div class="control-group">
-					  <label class="control-label" for="phone1">Phone No.</label>
+					  <label class="control-label" for="phone1">Contact Nos.</label>
 					  <div class="controls">
-						<input id="phone1" name="phone1" ng-model="item.tenant.phones[0]" placeholder="Phone Number" class="input-xlarge" type="text">						
-					  </div>
-				</div>
-
-				<div class="control-group">
-					  <label class="control-label" for="phone2">Alternate Phone No.</label>
-					  <div class="controls">
-						<input id="phone2" name="phone2" ng-model="item.tenant.phones[1]" placeholder="Alternate Phone Number" class="input-xlarge" type="text">						
+						<div class="input-prepend">
+							<input id="phone1" name="phone1" ng-model="item.tenant.phones[0]" placeholder="Phone Number" class="input-medium" type="text">
+						</div>	
+						<div class="input-prepend">
+							<input id="phone1" name="phone1" ng-model="item.tenant.phones[1]" placeholder="Phone Number" class="input-medium" type="text">
+						</div>
 					  </div>
 				</div>
 
@@ -255,21 +253,13 @@
 					<div class="input-prepend">
 					  <span class="add-on">From</span>
 					  <input ng-model="item.tenantFromDate" id="fromDate" name="fromDate" class="input-medium" placeholder="" type="text">
-					</div>								
-				  </div>
-				</div>
-				<div class="control-group">
-				  <label class="control-label" for="prependedtext"></label>
-				  <div class="controls">
+					</div>	
 					<div class="input-prepend">
 					  <span class="add-on">To&nbsp;&nbsp;&nbsp;</span>
 					  <input ng-model="item.tenantToDate" id="toDate" name="toDate" class="input-medium" placeholder="" type="text">
 					</div>
-					
 				  </div>
 				</div>
-
-
 				<div class="control-group">
 				  <label class="control-label" for="checkboxes">Check-in formalities</label>
 				  <div class="controls">
