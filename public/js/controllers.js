@@ -173,6 +173,10 @@ var ModalNewApartmentCtrl = function ($scope, $modal, $log) {
 var ModalInstanceNewApartmentCtrl = function ($scope, $modalInstance, item,$filter,Apartments,AlertService) {
 
   $scope.item = item;
+  console.log(item);
+  $scope.vehicle = {};
+  $scope.vehicle.vehicleType = 0;
+
   $scope.messageText = '';
 
   $scope.selectTemplate = function (index) {
@@ -184,7 +188,43 @@ var ModalInstanceNewApartmentCtrl = function ($scope, $modalInstance, item,$filt
 	$scope.item.tenant = new Object();
 	$scope.item.tenant.emails = new Array();
 	$scope.item.tenant.phones = new Array();
+	$scope.item.tenant.vehicles = new Array();
   };
+
+  $scope.addVehicleOwner = function() {
+        $scope.item.owner.vehicles.push({
+            vehicleNo: $scope.vehicle.vehicleNo,
+            vehicleType: $scope.vehicle.vehicleType,
+        });
+
+        $scope.vehicle.vehicleNo = '';
+        $scope.vehicle.vehicleType = 0;
+  }
+
+  $scope.deleteVehicleOwner = function (veh) {
+        var index = $scope.item.owner.vehicles.indexOf(veh);
+        if (index != -1) {
+          $scope.item.owner.vehicles.splice(index, 1);
+        }
+   }
+
+
+   $scope.addVehicleTenant = function() {
+        $scope.item.tenant.vehicles.push({
+            vehicleNo: $scope.vehicle.vehicleNo,
+            vehicleType: $scope.vehicle.vehicleType,
+        });
+
+        $scope.vehicle.vehicleNo = '';
+        $scope.vehicle.vehicleType = 0;
+  }
+
+  $scope.deleteVehicleTenant = function (veh) {
+        var index = $scope.item.owner.vehicles.indexOf(veh);
+        if (index != -1) {
+          $scope.item.tenant.vehicles.splice(index, 1);
+        }
+   }
 
 
   $scope.ok = function () {
@@ -198,6 +238,7 @@ var ModalInstanceNewApartmentCtrl = function ($scope, $modalInstance, item,$filt
 		apartment.owner.emails[1] =  item.owner.emails[1];
 		apartment.owner.phones[0] = item.owner.phones[0];
 		apartment.owner.phones[1] =  item.owner.phones[1];
+		apartment.owner.vehicles = item.owner.vehicles.slice(0);	
 
 		if (item.status=="2"){		
 			apartment.tenant=new Object();
@@ -212,7 +253,6 @@ var ModalInstanceNewApartmentCtrl = function ($scope, $modalInstance, item,$filt
 			apartment.tenant.agreement = item.tenant.agreement
 			apartment.tenant.registration =	item.tenant.registration
 		}
-
 		apartment.$save();
 		AlertService.clear();
 		AlertService.success('Information for apartment ' + item.flatnumber + ' is updated');
@@ -231,6 +271,7 @@ var ModalInstanceNewApartmentCtrl = function ($scope, $modalInstance, item,$filt
 		item.owner.emails[1] =  apartment.owner.emails[1];
 		item.owner.phones[0] = apartment.owner.phones[0];
 		item.owner.phones[1] =  apartment.owner.phones[1];
+		item.owner.vehicles = apartment.owner.vehicles.slice(0);
 		
 	});
 	$modalInstance.dismiss('cancel');
@@ -261,6 +302,7 @@ var ModalPaymentCtrl = function ($scope, $modal, $log) {
 		$scope.active = item;
 		var modalInstance = $modal.open({
 		  templateUrl: 'paymentModal',
+		  windowClass : 'modal-huge',
 		  controller: ModalInstancePaymentCtrl,		
 		  resolve: {
 			item: function () {

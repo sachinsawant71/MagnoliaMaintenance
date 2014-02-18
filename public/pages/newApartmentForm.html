@@ -18,7 +18,7 @@
 
 			<!-- Appended Input-->
 			<div class="control-group">
-			  <label class="control-label" for="SalableArea">SalableArea</label>
+			  <label class="control-label" for="SalableArea">Saleable Area</label>
 			  <div class="controls">
 			    <div class="input-append">
 			      <input id="SalableArea" ng-model="item.sellableArea" disabled="true" name="SalableArea" class="input-large" placeholder="Salable Area" type="text">
@@ -75,83 +75,132 @@
 		</div>
 		</tab>
 		<tab class="tabStyle" heading="Owner's Details">
-		
-				<form class="form-horizontal">
-				<fieldset>
-				<!-- Text input-->
-				<div class="control-group">
-				  <label class="control-label" for="textinput">Name</label>
-				  <div class="controls">
-					<input id="textinput" name="textinput" ng-model="item.owner.name" placeholder="Owner Name" class="input-xlarge" type="text">
-					
-				  </div>
-				</div>
 
-				<!-- Textarea -->
-				<div class="control-group">
-				  <label class="control-label" for="textarea">Address</label>
-				  <div class="controls">                     
-					<textarea id="textarea" style="width: 275px; height: 100px;" ng-disabled='item.status=="1"' ng-model="item.owner.address" name="textarea">Owner's Address</textarea>
-				  </div>
-				</div>
+			<form class="form-horizontal">
+			  <fieldset>
 
-	  <h4>Contact Details</h4>
-      <div class="tabbable tabs-left">
-        <ul class="nav nav-tabs">
-          <li><a href="#a" data-toggle="tab">Email</a></li>
-          <li><a href="#b" data-toggle="tab">Phone</a></li>
-        </ul>
-        <div class="tab-content">
-         <div class="tab-pane active bkwhite" id="a">
 					<div class="control-group">
-					  <label class="control-label" for="email1">Primary Email-ID</label>
+					  <label class="control-label" for="textinput">Name</label>
 					  <div class="controls">
-						<input id="email1" name="email1" ng-model="item.owner.emails[0]" placeholder="Email ID" class="input-xlarge" type="text">
-						
+						<input id="textinput" name="textinput" ng-model="item.owner.name" placeholder="Owner Name" class="input-xlarge" type="text">					
 					  </div>
 					</div>
 
-					<!-- Text input-->
+
+			  <accordion close-others="true">
+				<accordion-group class="acc" is-open="true">
+
+				    <accordion-heading>
+								Contact Information <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': isopen, 'glyphicon-chevron-up': !isopen}"></i>
+					</accordion-heading>
+
+					<!-- Textarea -->
 					<div class="control-group">
-					  <label class="control-label" for="email2">Secondary  Email-ID</label>
-					  <div class="controls">
-						<input id="email2" name="email2" ng-model="item.owner.emails[1]" placeholder="Second Emai ID" class="input-xlarge" type="text">
-						
+					  <label class="control-label" for="textarea">Address</label>
+					  <div class="controls">                     
+						<textarea id="textarea" style="width: 275px; height: 100px;" ng-disabled='item.status=="1"' ng-model="item.owner.address" name="textarea">Owner's Address</textarea>
 					  </div>
 					</div>
-		 </div>
-         <div class="tab-pane bkwhite" id="b">
-					<div class="control-group">
-					  <label class="control-label" for="phone1">Primary Phone No.</label>
-					  <div class="controls">
-						<input id="phone1" name="phone1" ng-model="item.owner.phones[0]" placeholder="Phone Number" class="input-xlarge" type="text">
-						
+
+					  <div class="tabbable tabs-left">
+						<ul class="nav nav-tabs">
+						  <li><a href="#a" data-toggle="tab">Email</a></li>
+						  <li><a href="#b" data-toggle="tab">Phone</a></li>
+						</ul>
+						<div class="tab-content">
+						 <div class="tab-pane active bkwhite" id="a">
+									<div class="control-group">
+									  <label class="control-label" for="email1">Primary Email-ID</label>
+									  <div class="controls">
+										<input id="email1" name="email1" ng-model="item.owner.emails[0]" placeholder="Email ID" class="input-xlarge" type="text">
+										
+									  </div>
+									</div>
+
+									<!-- Text input-->
+									<div class="control-group">
+									  <label class="control-label" for="email2">Secondary  Email-ID</label>
+									  <div class="controls">
+										<input id="email2" name="email2" ng-model="item.owner.emails[1]" placeholder="Second Emai ID" class="input-xlarge" type="text">
+										
+									  </div>
+									</div>
+						 </div>
+						 <div class="tab-pane bkwhite" id="b">
+									<div class="control-group">
+									  <label class="control-label" for="phone1">Primary Phone No.</label>
+									  <div class="controls">
+										<input id="phone1" name="phone1" ng-model="item.owner.phones[0]" placeholder="Phone Number" class="input-xlarge" type="text">
+										
+									  </div>
+									</div>
+
+									<!-- Text input-->
+									<div class="control-group">
+									  <label class="control-label" for="phone2">Secondary Phone No.</label>
+									  <div class="controls">
+										<input id="phone2" name="phone2" ng-model="item.owner.phones[1]" placeholder="Second Phone" class="input-xlarge" type="text">
+										
+									  </div>
+									</div>
+						 </div>
+						</div>
 					  </div>
+
+
+				</accordion-group>
+				<accordion-group class="acc" heading="Vehicle Data ({{item.owner.vehicles.length}})">
+
+					<div class="control-group">
+						  <label class="control-label" for="vehicleNo">Vehicle Info</label>
+						  <div class="controls">
+						    <div class="row-fluid">
+								<div class="span5">
+									<div class="input-prepend">
+										<input id="vehicleNo" name="vehicleNo" ng-model="vehicle.vehicleNo" placeholder="Registration Number" class="input-medium" type="text" capitalize>
+									</div>	
+								</div>
+								<div class="span4">
+									<div class="input-prepend">
+												<label class="radio inline" for="status-0">
+												  <input name="status" ng-model="vehicle.vehicleType" id="status-0" value="0" checked="checked" type="radio">
+												  4 Whealer
+												</label>
+												<label class="radio inline" for="status-1">
+												  <input name="status" ng-model="vehicle.vehicleType" id="status-1" value="1" type="radio">
+												  2 Whealer
+												</label>
+												<div class="btn-group vehicleadd">
+													<button type="button" class="btn btn-default" ng-click="addVehicleOwner()">
+													<i class="icon-plus"></i>&nbsp;&nbsp;Add
+												</button>
+												</div>
+									</div>
+								</div>
+							</div>
+						  </div>
+					</div>
+					<div>
+
+						<table class="table table-condensed">
+							<tr ng:repeat="veh in item.owner.vehicles">
+								<td>{{veh.vehicleNo}} - 
+									<span ng-if="veh.vehicleType == '0'">4-Whealer</span>
+									<span ng-if="veh.vehicleType == '1'">2-Whealer</span>
+								</td>
+								<td><button class="btn btn-default btn-xs" type="submit" ng-click="deleteVehicleOwner(veh)"><i class="icon-trash"></i>&nbsp;&nbsp;Delete</button></td>
+							</tr>
+						</table>
+
 					</div>
 
-					<!-- Text input-->
-					<div class="control-group">
-					  <label class="control-label" for="phone2">Secondary Phone No.</label>
-					  <div class="controls">
-						<input id="phone2" name="phone2" ng-model="item.owner.phones[1]" placeholder="Second Phone" class="input-xlarge" type="text">
-						
-					  </div>
-					</div>
-		 </div>
-        </div>
-      </div>
 
 
-				<!-- Text input-->
-
-
-					<!-- Text input-->
-
-
-
-				</fieldset>
-				</form>		
-		
+				</accordion-group>
+			  </accordion>
+			  </fieldset>
+			</form>
+	
 		
 		
 		</tab>
@@ -219,6 +268,9 @@
 				  </div>
 				</div>
 
+
+		  <accordion close-others="true">
+			<accordion-group class="acc" heading="Contact Information" is-open="true">
 				<!-- Textarea -->
 				<div class="control-group">
 				  <label class="control-label" for="textarea">Permanant Address</label>
@@ -246,6 +298,9 @@
 						</div>
 					  </div>
 				</div>
+
+			</accordion-group>
+			<accordion-group class="acc" heading="Contract Information" >
 
 				<div class="control-group">
 				  <label class="control-label" for="prependedtext">Contract Period</label>
@@ -277,6 +332,64 @@
 					</label>
 				  </div>
 				</div>
+
+			</accordion-group>
+
+
+				<accordion-group class="acc" heading="Vehicle Data ({{item.owner.vehicles.length}})">
+
+					<div class="control-group">
+						  <label class="control-label" for="vehicleNo">Vehicle Info</label>
+						  <div class="controls">
+						    <div class="row-fluid">
+								<div class="span5">
+									<div class="input-prepend">
+										<input id="vehicleNo" name="vehicleNo" ng-model="vehicle.vehicleNo" placeholder="Registration Number" class="input-medium" type="text" capitalize>
+									</div>	
+								</div>
+								<div class="span4">
+									<div class="input-prepend">
+												<label class="radio inline" for="status-0">
+												  <input name="status" ng-model="vehicle.vehicleType" id="status-0" value="0" checked="checked" type="radio">
+												  4 Whealer
+												</label>
+												<label class="radio inline" for="status-1">
+												  <input name="status" ng-model="vehicle.vehicleType" id="status-1" value="1" type="radio">
+												  2 Whealer
+												</label>
+												<div class="btn-group vehicleadd">
+													<button type="button" class="btn btn-default" ng-click="addVehicleTenant()">
+													<i class="icon-plus"></i>&nbsp;&nbsp;Add
+												</button>
+												</div>
+									</div>
+								</div>
+							</div>
+						  </div>
+					</div>
+					<div>
+
+						<table class="table table-condensed">
+							<tr ng:repeat="veh in item.tenant.vehicles">
+								<td>{{veh.vehicleNo}} - 
+									<span ng-if="veh.vehicleType == '0'">4-Whealer</span>
+									<span ng-if="veh.vehicleType == '1'">2-Whealer</span>
+								</td>
+								<td><button class="btn btn-default btn-xs" type="submit" ng-click="deleteVehicleTenant(veh)"><i class="icon-trash"></i>&nbsp;&nbsp;Delete</button></td>
+							</tr>
+						</table>
+
+					</div>
+
+
+
+				</accordion-group>
+
+
+
+
+
+		</accordion>
 
 				</fieldset>
 				</form>		

@@ -48,6 +48,7 @@ ApartmentProvider.prototype.findById = function(id, callback) {
 
 // update an employee
 ApartmentProvider.prototype.update = function(apartment, callback) {
+	console.log(apartment);
     this.getCollection(function(error, article_collection) {
       if( error ) callback(error);
       else {
@@ -59,7 +60,8 @@ ApartmentProvider.prototype.update = function(apartment, callback) {
 													owner: { name: apartment.owner.name,
 															 address: apartment.owner.address,
 															 emails: [apartment.owner.emails[0],apartment.owner.emails[1]],
-															 phones: [apartment.owner.phones[0],apartment.owner.phones[1]]
+															 phones: [apartment.owner.phones[0],apartment.owner.phones[1]],
+														     vehicles : apartment.owner.vehicles
 													},
 													tenant: {}
 												}
@@ -84,8 +86,7 @@ ApartmentProvider.prototype.update = function(apartment, callback) {
 															  registration : apartment.tenant.registration,
 															  emails: [apartment.tenant.emails[0]],
 															  phones: [apartment.tenant.phones[0],apartment.tenant.phones[1]]
-													},
-													tenant: {}
+													}												
 												}
 											},
                                         function(error, result) {
