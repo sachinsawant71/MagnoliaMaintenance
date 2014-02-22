@@ -48,7 +48,6 @@ ApartmentProvider.prototype.findById = function(id, callback) {
 
 // update an employee
 ApartmentProvider.prototype.update = function(apartment, callback) {
-	console.log(apartment);
     this.getCollection(function(error, article_collection) {
       if( error ) callback(error);
       else {

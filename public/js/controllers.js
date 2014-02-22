@@ -127,7 +127,6 @@ var ModalInstanceCtrl = function ($scope, $modalInstance, messageTemplates) {
   $scope.messageText = 'test';
 
   $scope.selectTemplate = function (index) {
-	  console.log('selected index' + index );
       $scope.messageTemplates.selectedTemplate = messageTemplates[index].template;
   };
 
@@ -173,9 +172,17 @@ var ModalNewApartmentCtrl = function ($scope, $modal, $log) {
 var ModalInstanceNewApartmentCtrl = function ($scope, $modalInstance, item,$filter,Apartments,AlertService) {
 
   $scope.item = item;
-  console.log(item);
   $scope.vehicle = {};
+  $scope.vehicle.vehicleNo = '';
   $scope.vehicle.vehicleType = 0;
+
+  if (!$scope.item.tenant.vehicles) {
+	  $scope.item.tenant.vehicles = new Array();
+  }
+
+  if (!$scope.item.owner.vehicles) {
+	  $scope.item.owner.vehicles = new Array();
+  }
 
   $scope.messageText = '';
 
@@ -311,8 +318,10 @@ var ModalPaymentCtrl = function ($scope, $modal, $log) {
 		  }
 		});
 
-		modalInstance.result.then(function (selectedItem) {}, function () {
-			$log.info(new Date());
+		modalInstance.result.then(function (selectedItem) {
+			console.log("saved");
+		}, function () {
+			console.log("canceled");
 		});
 	};
 
