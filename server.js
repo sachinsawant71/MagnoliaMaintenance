@@ -73,6 +73,8 @@ app.post('/api/payments', function(req, res) {
       if (error) {
         res.send(error, 404);
       } else {
+
+	  /*
 	  email.sendPaymentConfirmation(payment, function(e, m){
 			if (!e) {
 				//	res.send('ok', 200);
@@ -81,6 +83,7 @@ app.post('/api/payments', function(req, res) {
 					for (k in e) console.log('error : ', k, e[k]);
 			}
 	   });
+	   */
        res.send('');
       }
     });  

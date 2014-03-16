@@ -227,7 +227,7 @@ var ModalInstanceNewApartmentCtrl = function ($scope, $modalInstance, item,$filt
   }
 
   $scope.deleteVehicleTenant = function (veh) {
-        var index = $scope.item.owner.vehicles.indexOf(veh);
+        var index = $scope.item.tenant.vehicles.indexOf(veh);
         if (index != -1) {
           $scope.item.tenant.vehicles.splice(index, 1);
         }
@@ -305,12 +305,14 @@ var ModalInstanceNewApartmentCtrl = function ($scope, $modalInstance, item,$filt
 
 var ModalPaymentCtrl = function ($scope, $modal, $log) {
 
-	$scope.open = function (item,index,payment) {
+	var openConfirmationDialog = function (item,payment) {
+		$scope.payment = payment;
 		$scope.active = item;
 		var modalInstance = $modal.open({
-		  templateUrl: 'paymentModal',
+		  templateUrl: 'paymentConfirmationModal',
 		  windowClass : 'modal-huge',
-		  controller: ModalInstancePaymentCtrl,		
+		  scope : $scope,
+		  controller: PaymentConfirmationCtrl,		
 		  resolve: {
 			item: function () {
 			  return {"item" : item,"payment" : payment};
@@ -320,6 +322,30 @@ var ModalPaymentCtrl = function ($scope, $modal, $log) {
 
 		modalInstance.result.then(function (selectedItem) {
 			console.log("saved");
+		}, function () {
+			console.log("canceled");
+		});
+	};
+
+	$scope.open = function (item,index,payment) {
+		$scope.active = item;
+		var modalInstance = $modal.open({
+		  templateUrl: 'paymentModal',
+		  windowClass : 'modal-huge',
+		  scope : $scope,
+		  controller: ModalInstancePaymentCtrl,		
+		  resolve: {
+			item: function () {
+			  return {"item" : item,"payment" : payment};
+			}
+		  }
+		});
+
+		modalInstance.result.then(function () {
+			console.log('before opening confirmatiom');
+			console.log($scope);
+			openConfirmationDialog(item,$scope.payment);
+			
 		}, function () {
 			console.log("canceled");
 		});
@@ -355,8 +381,6 @@ var ModalInstancePaymentCtrl = function ($scope, $modalInstance, item,$filter,Ap
   } 
 
   $scope.ok = function () {	
-    console.log($scope.payment);
-
 	var payments = Payments.query(function () {
                        $scope.payments = payments;
             }, function ($http) {
@@ -377,14 +401,27 @@ var ModalInstancePaymentCtrl = function ($scope, $modalInstance, item,$filter,Ap
 		payment.period = $scope.payment.period;
 	}
 
-    // Send POST request to the back end.
     payment.$save(function (data) {
                     payments.push(data);
                 }, function ($http) {
                     console.log('Couldn\'t save payment.');
                 });
 
-
+	console.log('done1');
+	console.log(payment);
+    $scope.$parent.payment11 = payment;
+	$scope.$parent.payment = {
+	                date: payment.date,
+					type: payment.type,					
+					flatnumber: payment.flatnumber,
+                    email: payment.email,
+					mode: payment.mode,
+					bank: payment.bank,
+					amount : payment.amount	
+	
+	};
+	console.log($scope.$parent);
+	console.log('done2');
 	$modalInstance.close();
   };
 
@@ -393,6 +430,23 @@ var ModalInstancePaymentCtrl = function ($scope, $modalInstance, item,$filter,Ap
   };
 
 
+};
+
+
+var PaymentConfirmationCtrl = function ($scope, $modalInstance,item,$timeout,$filter) {
+
+  console.log(item);
+  $scope.item = item.item;
+  $scope.payment = item.payment;
+
+  $scope.onPrint = function() {
+       var w=window.print();
+
+  };
+
+  $scope.cancel = function () {
+    $modalInstance.dismiss('cancel');
+  };
  
 
 };

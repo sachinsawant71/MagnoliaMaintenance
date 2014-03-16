@@ -1,4 +1,13 @@
 ﻿
+
+.printable{display:none;}
+/* print styles*/
+
+@media print {
+ .printable {display:block;}
+ .screen {display:none;}
+}
+
 #appname {color:#322CA3;}
 
 .gridStyle {
@@ -72,6 +81,8 @@ fieldset {background-color : white}
 .vehicleadd {
 	margin-left:10px;
 }
+
+
 
 
 
